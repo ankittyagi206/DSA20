@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Zero</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Sum Zero</h1>
+        <button><a href="/index.html">Back</a></button>
+    </div>
+  <section style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/LNKqOKtKCpQ?si=gi1Em6zMQnyw1JEX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <pre>
+        <code>/**
+            * @function sumZero
+            * @return [number,number]
+            * @params Array
+            *
+            * @description
+            * [-5,-4,-3,-2,0,2,4,6,8]
+            * we will have a sorted array
+            * now find the first pair whose sum is zero and return them
+            */
+           
+           //------------------------------------------BRUTE FORCE------------------------------------------
+           
+           function sumZero(arr) {
+             for (let i = 0; i < arr.length; i++) {
+               for (let j = i + 1; j < arr.length; j++) {
+                 if (arr[i] + arr[j] === 0) {
+                   return [arr[i], arr[j]];
+                 }
+               }
+             }
+           }
+           const res = sumZero([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+           
+           console.log(res);
+        </code>
+    </pre>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4clAr675Lo4?si=I61mKBLZC49fKu-F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <pre>
+        <code>/**
+            * OPTIMIZED APPROACH
+            */
+           
+           /**
+            * let i=0; j= arr.length-1;
+            * -5+8 =3 which is positive j--
+            * -5+6 =1 which is also positive j--
+            * -5+4 =-1 which is negative i++
+            *  -4+4 =0 which is equal to 0 , return the values
+            *
+            * if zero --> return
+            * if negative --> i++
+            * if positive -->j--
+            *
+            */
+           function sumZero2(arr) {
+             let i = 0,
+               j = arr.length - 1;
+           
+             while (i < j) {
+               if (arr[i] + arr[j] === 0) {
+                 return [arr[i], arr[j]];
+               }
+               if (arr[i] + arr[j] > 0) {
+                 j--;
+               }
+               if (arr[i] + arr[j] < 0) {
+                 i++;
+               }
+             }
+           }
+           
+           const res2 = sumZero2([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+           
+           console.log(res2, "optimized");</code>
+    </pre>
+</section>
+    <script src="sumZero.js"></script>
+</body>
+</html>

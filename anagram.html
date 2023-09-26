@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagram</title>
+  </head>
+  <body>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <h1>Anagram</h1>
+      <button><a href="/index.html">Back</a></button>
+    </div>
+    <section
+      style="
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      "
+    >
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/kmmZc6RJMTk?si=PLBczt48NNnhkHNP"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <pre>
+        <code>
+            /**
+            * Anagram
+            * what is an anagram ?
+            *
+            * @function isAnagram
+            * @return Boolean
+            * @param String1,String2
+            *
+            * @description
+            * An anagram is string which use same set of characters, in different arrangements
+            * 'hello' --> 'ellho'
+            */
+           
+           function isAnagram(str1, str2) {
+             if (str1.length !== str2.length) {
+               return false;
+             }
+             let Map = {};
+             for (let i = 0; i < str1.length; i++) {
+               Map[str1[i]] = (Map[str1[i]] || 0) + 1;
+             }
+             for (let j = 0; j < str2.length; j++) {
+               if (!Map[str2[j]]) {
+                 return false;
+               } else {
+                 Map[str2[j]] -= 1;
+               }
+             }
+             return true;
+           }
+           
+           const res = isAnagram("hello", "lllho");
+           console.log(res);
+
+        </code>
+    </pre>
+    </section>
+    <script src="anagram.js"></script>
+  </body>
+</html>
