@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count Unique Numbers</title>
+  </head>
+  <body>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <h1>Count Unique Numbers</h1>
+      <button><a href="/index.html">Back</a></button>
+    </div>
+    <section
+      style="
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      "
+    >
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/rs75oZD8lW4?si=Wth7fOgUTGoFWXJp"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <pre>
+        <code>
+            /**
+            * count unique elements
+            * [1,1,2,2,3,4,4,5,6,7,8,8]
+            * sorted array
+            */
+           
+           /**
+            * @function countUnique
+            * @param Array
+            * @return number
+            */
+           
+           const countUnique = (arr) => {
+             let i = 0;
+             let j = 1;
+             if (arr.length > 0) {
+               for (let j = 1; i < arr.length; j++) {
+                 if (arr[i] !== arr[j]) {
+                   i++;
+                   arr[i] = arr[j];
+                 }
+               }
+               return i + 1;
+             } else {
+               throw Error("Array length is less than 1");
+             }
+           };
+           const res = countUnique([1, 1, 2, 2, 3, 4, 4, 5, 6, 7, 8, 8]);
+           
+           console.log(res);
+           ;
+
+        </code>
+    </pre>
+    </section>
+    <script src="anagram.js"></script>
+  </body>
+</html>
